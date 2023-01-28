@@ -436,5 +436,32 @@ cmp.event:on(
   cmp_autopairs.on_confirm_done()
 )
 
+-- Fun keymaps
+
+-- Keep the cursor in the middle when scrolling with <C-d> and <C-u>
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+
+-- Keep the cursor in the middle when going through the search results
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Paste and keep the value in our register
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[p] Paste and keep the previous value in the register' })
+
+-- Yank to the system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y', { desc = 'Yank to the system clipboard' })
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y', { desc = 'Yank to the end of the line to the system clipboard' })
+
+-- Delete to the void register
+vim.keymap.set({'n', 'v'}, '<leader>d', '"_d', { desc = 'Delete to the void register' })
+
+-- Easily move between windows
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move cursor to the window below current one.' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move cursor to the window above current one.' })
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move cursor to the window left of current one.' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move cursor to the window right of current one.' })
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
