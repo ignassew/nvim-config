@@ -1,6 +1,6 @@
 ### Introduction
 
-Based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
+My neovim config based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
 List of changes to kickstart.nvim:
 
@@ -10,8 +10,7 @@ List of changes to kickstart.nvim:
 ### Installation
 
 * Backup your previous configuration
-* Copy and paste the kickstart.nvim `init.lua` into `$HOME/.config/nvim/init.lua` (Linux) or `~/AppData/Local/nvim/init.lua` (Windows)
-* Git clone this repository into your neovim configuration folder: `git clone https://github.com/ignassew/nvim-config $HOME/.config/nvim`
+* Git clone this repository into your neovim configuration folder: `git clone https://github.com/ignassew/nvim-config $HOME/.config/nvim` (Linux) or `git clone https://github.com/ignassew/nvim-config ~/AppData/Local/nvim/init.lua` (Windows)
 * Start Neovim (`nvim`) and run `:PackerInstall` - ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
 * Restart Neovim
 
