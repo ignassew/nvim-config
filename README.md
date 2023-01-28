@@ -6,6 +6,7 @@ List of changes to kickstart.nvim:
 
 * Enable relative line numbers
 * [Catppuccin theme](https://github.com/catppuccin/nvim)
+* Add [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 
 ### Installation
 
