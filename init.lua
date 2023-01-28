@@ -101,6 +101,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Enable incremental search
+vim.opt.incsearch = true
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -130,6 +133,9 @@ vim.cmd [[colorscheme catppuccin-mocha]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 8
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key

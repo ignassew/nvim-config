@@ -8,6 +8,7 @@ List of changes to kickstart.nvim:
 * [Catppuccin theme](https://github.com/catppuccin/nvim)
 * Add [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 * Add a couple of useful keybinds
+* Enable scrolloff
 
 ### Installation
 
