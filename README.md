@@ -1,20 +1,17 @@
 ### Introduction
 
-A starting point for Neovim that is:
+Based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-* Small (<500 lines)
-* Single-file
-* Documented
-* Modular
+List of changes to kickstart.nvim:
 
-Kickstart.nvim targets *only* the latest ['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim. If you are experiencing issues, please make sure you have the latest versions.
-
-This repo is meant to be used as a starting point for a user's own configuration; remove the things you don't use and add what you miss. Please refrain from leaving comments about enabling / disabling particular languages out of the box.
+* Enable relative line numbers
+* [Catppuccin theme](https://github.com/catppuccin/nvim)
 
 ### Installation
 
 * Backup your previous configuration
 * Copy and paste the kickstart.nvim `init.lua` into `$HOME/.config/nvim/init.lua` (Linux) or `~/AppData/Local/nvim/init.lua` (Windows)
+* Git clone this repository into your neovim configuration folder: `git clone https://github.com/ignassew/nvim-config $HOME/.config/nvim`
 * Start Neovim (`nvim`) and run `:PackerInstall` - ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
 * Restart Neovim
 
@@ -68,13 +65,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 
 ### Contribution
 
-Pull-requests are welcome. The goal of this repo is not to create a Neovim configuration framework, but to offer a starting template that shows, by example, available features in Neovim. Some things that will not be included:
-
-* Custom language server configuration (null-ls templates)
-* Theming beyond a default colorscheme necessary for LSP highlight groups
-* Lazy-loading. Kickstart.nvim should start within 40 ms on modern hardware. Please profile and contribute to upstream plugins to optimize startup time instead.
-
-Each PR, especially those which increase the line count, should have a description as to why the PR is necessary.
+Any contributions are welcome, but because this is my personal configuration, I will only accept those contributions that are fitting me.
 
 ### FAQ
 
