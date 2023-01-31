@@ -63,6 +63,9 @@ require('packer').startup(function(use)
   -- Automatically close brackets
   use { 'windwp/nvim-autopairs', config = function() require("nvim-autopairs").setup {} end }
 
+  -- Wakatime
+  use 'wakatime/vim-wakatime'
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then

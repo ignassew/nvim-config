@@ -9,6 +9,7 @@ List of changes to kickstart.nvim:
 * Add [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 * Add a couple of useful keybinds
 * Enable scrolloff
+* Add [wakatime](https://github.com/wakatime/vim-wakatime)
 
 ### Installation
 
