@@ -10,6 +10,7 @@ List of changes to kickstart.nvim:
 * Add a couple of useful keybinds
 * Enable scrolloff
 * Add [wakatime](https://github.com/wakatime/vim-wakatime)
+* Set indent to 4 spaces
 
 ### Installation
 
