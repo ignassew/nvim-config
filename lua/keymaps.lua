@@ -35,3 +35,17 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+local function yank_path_and_line_number()
+    -- path:line_number
+    local yank_text = vim.fn.expand('%:p') .. ':' .. vim.fn.line('.')
+    vim.fn.setreg('', yank_text)
+end
+
+vim.keymap.set('n', 'yp', yank_path_and_line_number, { desc = 'Yank path and line number to the default register.' })
+
+-- Open netrw
+vim.keymap.set('n', '<leader>x', ":Ex<CR>")
+
+-- Right split
+vim.keymap.set('n', '<leader>v', ":vs<CR>")

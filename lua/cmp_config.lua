@@ -18,7 +18,7 @@ cmp.setup {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete {},
         ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
         ['<Tab>'] = cmp.mapping(function(fallback)
@@ -41,6 +41,7 @@ cmp.setup {
         end, { 'i', 's' }),
     },
     sources = {
+        { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
     },

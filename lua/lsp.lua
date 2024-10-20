@@ -3,24 +3,28 @@
 -- Configure the following language servers
 local servers = {
     lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false },
+                telemetry = { enable = false },
+            },
         },
     },
     rust_analyzer = {
-        ["rust-analyzer"] = {
-            procMacro = { enable = true }
-        }
+        settings = {
+            ["rust-analyzer"] = {
+                procMacro = { enable = true },
+                diagnostics = {
+                    experimental = { enable = false }
+                }
+            }
+        },
     },
 }
 
--- Ensure the servers above are installed
-local mason_lspconfig = require("mason-lspconfig")
-
-mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers),
-}
+require("mason").setup({
+    PATH = "append"
+})
 
 -- This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -44,7 +48,7 @@ local on_attach = function(_, bufnr)
 
     -- See `:help K` for why this keymap
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('<C-K>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
@@ -55,14 +59,26 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-
-mason_lspconfig.setup_handlers {
+local handlers = {
     function(server_name)
-        require('lspconfig')[server_name].setup {
+        local setup = {
             capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
+            on_attach = on_attach
         }
+        if servers[server_name] ~= nil then
+            for k, v in pairs(servers[server_name]) do
+                setup[k] = v
+            end
+        end
+
+        require('lspconfig')[server_name].setup(setup)
     end,
 }
 
+-- Ensure the servers above are installed
+local mason_lspconfig = require("mason-lspconfig")
+
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+    handlers = handlers
+}

@@ -9,9 +9,6 @@ vim.opt.incsearch = true
 -- Make line numbers default
 vim.wo.number = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
-
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -21,10 +18,6 @@ vim.o.undofile = true
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
 
 -- Relative numbers
 vim.o.relativenumber = true
@@ -45,6 +38,13 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+-- unless we're working with go...
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { "go" },
+    callback = function()
+        vim.opt.expandtab = false
+    end,
+})
 
 -- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
@@ -57,3 +57,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     pattern = '*',
 })
 
+-- Split on the right when vertical
+vim.o.splitright = true
+
+-- Set default sql dialect to postgresql
+vim.g.sql_type_default = 'postgresql'
+
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true

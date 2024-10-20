@@ -13,7 +13,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { "williamboman/mason.nvim", build = ":MasonUpdate", config = true },
+            { "williamboman/mason.nvim", build = ":MasonUpdate" },
             "williamboman/mason-lspconfig.nvim",
         },
     },
@@ -73,11 +73,37 @@ return {
         }
     },
     -- Thingy that show vertical line on indentations
-    { "lukas-reineke/indent-blankline.nvim", opts = { char = "┊" } },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
     -- Comment assistant
     { "numToStr/Comment.nvim", opts = {} },
     -- Wakatime
     { "wakatime/vim-wakatime" },
     -- Autopairs
-    { "windwp/nvim-autopairs", config = true }
+    { "windwp/nvim-autopairs", config = true },
+    {
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        config = function ()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    },
+    {
+        "luckasRanarison/tailwind-tools.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {} -- your configuration
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {},
+    }
 }
